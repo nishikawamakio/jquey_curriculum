@@ -45,19 +45,19 @@ $(function() {
     $(this).removeClass('.is-hidden');
     switch (click) {
       case HOME:
-        $('.contents').find('li').eq(text).removeClass('.is-hidden');
-        $('.contents').find('li').eq(1).addClass('.is-hidden');
-        $('.contents').find('li').eq(2).addClass('.is-hidden');
+        $('.contents').find('li').eq(HOME).removeClass('.is-hidden');
+        $('.contents').find('li').eq(NEWS).addClass('.is-hidden');
+        $('.contents').find('li').eq(MYPAGE).addClass('.is-hidden');
         break;
       case NEWS:
-        $('.contents').find('li').eq(text).removeClass('.is-hidden');
-        $('.contents').find('li').eq(0).addClass('.is-hidden');
-        $('.contents').find('li').eq(2).addClass('.is-hidden');
+        $('.contents').find('li').eq(NEWS).removeClass('.is-hidden');
+        $('.contents').find('li').eq(HOME).addClass('.is-hidden');
+        $('.contents').find('li').eq(MYPAGE).addClass('.is-hidden');
         break;
       case MYPAGE:
-        $('.contents').find('li').eq(text).removeClass('.is-hidden');
-        $('.contents').find('li').eq(0).addClass('.is-hidden');
-        $('.contents').find('li').eq(1).addClass('.is-hidden');
+        $('.contents').find('li').eq(MYPAGE).removeClass('.is-hidden');
+        $('.contents').find('li').eq(HOME).addClass('.is-hidden');
+        $('.contents').find('li').eq(NEWS).addClass('.is-hidden');
         break;
     }*/
   });
