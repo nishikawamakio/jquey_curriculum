@@ -30,6 +30,40 @@
 // .eq() 引数に応じたindexの要素を指定します。
 // .addClass() クラスを追加します。
 // .removeClass() クラスを削除します。
+
+$(function() {
+  $('.nav').find('li').click(function() {
+    var click = $(this).index();
+    $('.contents').find('li').eq(click).removeClass('.is-hidden');
+    /* Act on the event */
+    /*
+    var click = $(this).index();
+    var HOME = 0;
+    var NEWS = 1;
+    var MYPAGE = 2;
+    $('.contents').find('li').eq(click).removeClass('.is-hidden');
+    $(this).removeClass('.is-hidden');
+    switch (click) {
+      case HOME:
+        $('.contents').find('li').eq(text).removeClass('.is-hidden');
+        $('.contents').find('li').eq(1).addClass('.is-hidden');
+        $('.contents').find('li').eq(2).addClass('.is-hidden');
+        break;
+      case NEWS:
+        $('.contents').find('li').eq(text).removeClass('.is-hidden');
+        $('.contents').find('li').eq(0).addClass('.is-hidden');
+        $('.contents').find('li').eq(2).addClass('.is-hidden');
+        break;
+      case MYPAGE:
+        $('.contents').find('li').eq(text).removeClass('.is-hidden');
+        $('.contents').find('li').eq(0).addClass('.is-hidden');
+        $('.contents').find('li').eq(1).addClass('.is-hidden');
+        break;
+    }*/
+  });
+});
+
+
 </script>
 </body>
 </html>
