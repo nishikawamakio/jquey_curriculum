@@ -29,11 +29,11 @@
 // .fadeOut() 一定時間かけてフェードアウトする。
 
 $(function() {
-  $('.modal-show').click(function() {
+  $('.modal-show').on('click', function() {
     /* Act on the event */
     $('.modal').fadeIn(500);
   });
-  $('.modal-close').click(function() {
+  $('.modal-close').on('click', function() {
     /* Act on the event */
     $('.modal').fadeOut(500);
   });
