@@ -61,12 +61,10 @@
 
   $Menu__list.on({
       'mouseenter': function() {
-        $(this).children().next().stop();
-        $(this).children().next().slideDown();
+        $(this).children().next().stop().slideDown();
       },
       'mouseleave': function() {
-        $(this).children().next().stop();
-        $(this).children().next().slideUp();
+        $(this).children().next().stop().slideUp();
       }
     });
   });
