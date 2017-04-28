@@ -56,6 +56,20 @@
 // .next() 要素の隣の要素を取得します。
 // .children() 要素の子要素を取得します。
 // .stop() 現在動作中のアニメーション処理を全て中止します。
+  $(function() {
+    var $Menu__list = $('.menu__list').find('li');
+
+  $Menu__list.on({
+      'mouseenter': function() {
+        $(this).children().next().stop();
+        $(this).children().next().slideDown();
+      },
+      'mouseleave': function() {
+        $(this).children().next().stop();
+        $(this).children().next().slideUp();
+      }
+    });
+  });
 </script>
 </body>
 </html>
