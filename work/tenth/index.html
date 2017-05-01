@@ -22,7 +22,7 @@
       <button id="js-search-button" class="search__btn">検索する</button>
     </div>
     <ul class="lists"></ul>
-    <p class="container__p"></p>
+    <p class=" message__p"></p>
   </div>
 </div>
 <script src="../../common/js/jquery.js"></script>
@@ -70,7 +70,7 @@ $(function() {
   /*** keywordの検知処理 ***/
   var $search__btn = $('.search__btn');
   var $lists = $('.lists');
-  var $container__p = $('.container__p');
+  var message__p = $('.message__p');
   var $keyword = $('#js-search-word');
 
   /* ユーザからのボタン押下時の処理 */
@@ -81,8 +81,8 @@ $(function() {
 
   $search__btn.on('click', function() {
     /* Act on the event */
-    var $keyword__val = $keyword.val();
-    if($keyword__val == '') {
+    var keyword__val = $keyword.val();
+    if($keyword__val === '') {
       alert('キーワードを入力してください');
     }
     else {
@@ -94,30 +94,28 @@ $(function() {
           // 「区分:サービス固有パラメーター」を確認して、必要な情報をdata内に入れましょう。
           applicationId: '1019399324990976605', // (今回はこのIDを使用してください)
           booksGenreId: '001',
-          keyword: $keyword__val,
+          keyword: keyword__val,
           hits: 20,
         },
       }).done(function(data) {
         // この中にデータ取得後の動きを記述していきます。
         //console.log(data.count);
         if(data.count === 0) {
-          var pstr = '';
-          pstr = '<p>検索件数は０件です</p>'
-          $container__p.append(pstr);
+          var pstr = '検索件数は０件です';
+          message__p.append(pstr);
          }
         data.Items.forEach(function(item) {
-         var liststr = '';
-         liststr =
-            '<li class="lists__item">' +
-              '<div class="lists__item__inner">' +
-                '<a href="' + item.Item.itemUrl +'" class="lists__item__link" target="_blank">' +
-                  '<img src="' + item.Item.largeImageUrl +'" class="lists__item__img" alt="">' +
-                  '<p class="lists__item__detail">作品名：' + item.Item.title + '</p>' +
-                  '<p class="lists__item__detail">作者　：' + item.Item.author + '</p>' +
-                  '<p class="lists__item__detail">出版社：' + item.Item.publisherName + '</p>' +
-                '</a>' +
-              '</div>' +
-            '</li>';
+         var liststr =
+         '<li class="lists__item">' +
+           '<div class="lists__item__inner">' +
+             '<a href="' + item.Item.itemUrl +'" class="lists__item__link" target="_blank">' +
+               '<img src="' + item.Item.largeImageUrl +'" class="lists__item__img" alt="">' +
+               '<p class="lists__item__detail">作品名：' + item.Item.title + '</p>' +
+               '<p class="lists__item__detail">作者　：' + item.Item.author + '</p>' +
+               '<p class="lists__item__detail">出版社：' + item.Item.publisherName + '</p>' +
+             '</a>' +
+           '</div>' +
+         '</li>';
          $lists.append(liststr);
         });
       }).fail(function() {
